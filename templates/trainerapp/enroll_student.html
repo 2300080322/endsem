@@ -1,0 +1,48 @@
+<!-- enroll_student.html -->
+from django.contrib.auth.models import User
+
+{% extends 'Navbar/trainernavbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll a Student in {{ course.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Optional: Link to external stylesheet -->
+</head>
+<body>
+    <div class="container">
+        <h2>Enroll a Student in {{ course.title }}</h2>
+
+        <!-- Display any messages (e.g., success or error) -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Enrollment Form -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="student_id">Select Student:</label>
+                <select name="student_id" id="student_id" class="form-control">
+                    <option value="" disabled selected>Select a student</option>
+                    {% for student in students %}
+                        <option value="{{ student.id }}">{{ student.user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enroll</button>
+        </form>
+
+        <a href="{% url 'trainer:course_details' course.id %}" class="btn btn-secondary">Back to Course Details</a>
+
+    </div>
+
+    <!-- Optional: Link to external JS -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

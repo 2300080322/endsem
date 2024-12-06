@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'navbar/employeenavbar.html' %}
+<html lang="en">
+<head>
+    <title>Create/Update Profile</title>
+</head>
+<body>
+    {% include 'employeeapp/navbar.html' %}
+    <h1>Create or Update Profile</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" value="{{ profile.first_name }}" required><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" value="{{ profile.last_name }}" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ profile.email }}" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" value="{{ profile.phone }}"><br>
+
+        <label for="address">Address:</label>
+        <textarea name="address">{{ profile.address }}</textarea><br>
+
+        <label for="skills">Skills:</label>
+        <textarea name="skills">{{ profile.skills }}</textarea><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

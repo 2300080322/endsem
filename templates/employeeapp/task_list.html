@@ -1,0 +1,60 @@
+<!-- employeeapp/templates/employeeapp/task_list.html -->
+<!DOCTYPE html>
+{% extends 'navbar/employeenavbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Tasks - Employee Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .completed {
+            color: green;
+        }
+        .not-completed {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base_generic.html' %}
+
+    {% block content %}
+    <h2>Your Tasks</h2>
+    <ul>
+        {% if tasks %}
+            {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
+                - Completed: <span class="{% if task.completed %}completed{% else %}not-completed{% endif %}">
+                    {% if task.completed %} Yes {% else %} No {% endif %}
+                </span>
+            </li>
+            {% endfor %}
+        {% else %}
+            <li>No tasks assigned.</li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+</body>
+</html>

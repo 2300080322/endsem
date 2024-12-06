@@ -1,0 +1,44 @@
+{% extends 'Navbar/ProjectNavbar.html' %}
+{% block body %}
+<!DOCTYPE html>
+
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+          <div class="logo">EMPLOYEE TRAINING AND<span> ONBOARDING SYSTEM</span></div>
+
+            <p>
+               "Empowering growth through seamless employee training and onboarding! Explore tailored learning journeys designed to build skills and accelerate success."
+            </p>
+
+        </div>
+
+        <!-- Right Section -->
+        <div class="middle-section">
+            <!-- Navigation Bar -->
+
+            <!-- Illustration Image -->
+            <div class="illustration">
+                <img src="{% static 'images/emp.jpg' %}" alt="Illustration" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+</body>
+</html>
+{% endblock %}

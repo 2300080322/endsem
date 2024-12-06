@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% extends 'Navbar/trainernavbar.html' %}
+{% load static %}
+ {% block body %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <style>
+        body {
+            background-color: #f4f7fa; /* Light background color for a fresh feel */
+            font-family: 'Roboto', sans-serif; /* Use Google Font */
+            margin: 0;
+            padding: 0;
+        }
+
+        .welcome-banner {
+            background-color: #007bff; /* Primary blue color for the banner */
+            color: #ffffff; /* White text */
+            padding: 50px 20px; /* Increased padding for a more spacious feel */
+            border-radius: 12px; /* Rounded corners for a modern look */
+            text-align: center; /* Center-align text */
+            margin-bottom: 40px; /* Space below the banner */
+        }
+
+        h1 {
+            font-weight: 700; /* Bold heading */
+            font-size: 2.8rem; /* Larger font size */
+            margin: 0; /* Remove default margin */
+        }
+
+        .intro-text {
+            color: #495057; /* Dark gray for subtext */
+            font-size: 1.3rem; /* Slightly larger text for better readability */
+            margin-top: 20px; /* Space above the intro text */
+            line-height: 1.6; /* Improved line height for easier reading */
+        }
+
+        .container {
+            margin-top: 50px; /* Space from the top */
+            text-align: center; /* Center-align container content */
+            padding: 20px; /* Padding for neatness */
+        }
+
+        .btn-custom {
+            background-color: #007bff; /* Green button */
+            color: #fff;
+            border-radius: 30px; /* Rounded button */
+            padding: 10px 20px; /* Spacious padding */
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .page-link {
+            color: #007bff; /* Primary blue color for links */
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .page-link:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Additional responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Slightly smaller font on smaller screens */
+            }
+            .intro-text {
+                font-size: 1.1rem; /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="welcome-banner">
+            <h1>WELCOME TO MY TRAINER PAGE</h1>
+        </div>
+        <p class="intro-text">Here you can manage your courses, view progress, and much more!</p>
+
+        <!-- Example button or link for further actions -->
+        <a href="" class="btn-custom">Manage Courses</a>
+
+        <!-- Example pagination or other links -->
+        <div class="pagination-links" style="margin-top: 30px;">
+            <a href="" class="page-link">View Progress</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+  {% endblock %}

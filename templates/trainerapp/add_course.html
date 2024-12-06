@@ -1,0 +1,16 @@
+{% extends 'Navbar/trainernavbar.html' %}
+
+{% block body %}
+    <div class="container">
+        <h2>Add New Course</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+
+        <br>
+        <a href="{% url 'trainerapp:course_list' %}">Back to Course List</a>
+    </div>
+{% endblock %}

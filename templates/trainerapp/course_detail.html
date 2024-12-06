@@ -1,0 +1,27 @@
+{% extends 'Navbar/trainernavbar.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-3">{{ course.name }}</h2>
+        <p><strong>Description:</strong> {{ course.description }}</p>
+        <p><strong>Start Date:</strong> {{ course.start_date }}</p>
+        <p><strong>End Date:</strong> {{ course.end_date }}</p>
+
+        <h3 class="mt-4">Other Available Courses</h3>
+        <ul class="list-unstyled">
+            {% for other_course in courses %}
+                {% if other_course.pk != course.pk %}
+                    <li class="mb-3">
+                        <a href="{% url 'trainerapp:course_detail' other_course.pk %}" class="text-decoration-none">
+                            <strong>{{ other_course.name }}</strong>
+                        </a>
+                        <p class="text-muted">{{ other_course.description|truncatewords:20 }}</p>
+                    </li>
+                {% endif %}
+            {% empty %}
+                <p>No other courses available.</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'navbar/projectnavbar.html' %}
+{% load static %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* Background Image */
+        body {
+  background-image: url("{% static 'images/emp1.webp' %}");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centered Login Container */
+      .login-container {
+    width: 150%;
+    max-width: 600px;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 100px auto;
+    text-align: center;
+    outline: 3px solid #007bff; /* Added blue outline */
+}
+
+
+        /* Heading Style */
+        h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        /* Input Field Styles */
+        input[type="text"], input[type="password"] {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Input focus styles */
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        /* Message Box Styles */
+        .messages {
+
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+            font-size: 14px;
+        }
+
+        .messages li {
+            padding: 12px;
+            border: 1px solid;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form action="{% url 'adminapp:UserLoginLogic' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+    </form>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+</body>
+</html>
+
+{% endblock %}

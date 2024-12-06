@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'navbar/employeenavbar.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+</head>
+<body>
+
+    <h1>Your Profile</h1>
+    <p><strong>First Name:</strong> {{ profile.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ profile.last_name }}</p>
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+    <p><strong>Phone:</strong> {{ profile.phone }}</p>
+    <p><strong>Address:</strong> {{ profile.address }}</p>
+    <p><strong>Skills:</strong> {{ profile.skills }}</p>
+    <a href="{% url 'create_profile' %}">Edit Profile</a>
+</body>
+</html>

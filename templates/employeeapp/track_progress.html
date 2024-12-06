@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'navbar/employeenavbar.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Employee Progress</title>
+</head>
+<body>
+    <header>
+        <h1>Employee Progress Tracking</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{% url 'report' %}">Reports</a>
+        </nav>
+    </header>
+
+    <main>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Course</th>
+                    <th>Progress (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for progress in progress_data %}
+                    <tr>
+                        <td>{{ progress.employee.first_name }} {{ progress.employee.last_name }}</td>
+                        <td>{{ progress.course.name }}</td>
+                        <td>{{ progress.progress_percent }}%</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">No progress data available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Employee Training System</p>
+    </footer>
+</body>
+</html>
